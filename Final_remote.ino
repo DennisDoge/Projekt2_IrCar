@@ -39,7 +39,7 @@ void setup() {
 * Returns: void
 */
 void sendIR(uint32_t command) {
-  for (int i = 0; i < 3; i++) {             // Send command 3 times
+  for (int i = 0; i < 3; i++) {             
     IrSender.sendNEC(command, 32);          // Send NEC protocol command
     delay(40);                             
   }
@@ -62,7 +62,7 @@ void loop() {
   Serial.print("X: "); Serial.print(x);
   Serial.print(" | Y: "); Serial.println(y);
 
-  // Detect and send movement commands based on joystick position
+  // Detect and send movement commands based on joystick
   if (y > 700 && abs(x - 512) < 100) {
     sendIR(IR_FORWARD);         // Forward
   } else if (y < 300 && abs(x - 512) < 100) {
@@ -72,7 +72,7 @@ void loop() {
   } else if (x < 300) {
     sendIR(IR_LEFT);            // Left
   } else if (btn) {
-    sendIR(IR_SMART_FWD);       // Toggle smart forward mode
+    sendIR(IR_SMART_FWD);       // smart forward mode
   }
 
   delay(50);  
