@@ -33,7 +33,7 @@ void setup() {
 }
 
 /*
-* This function sends an IR command multiple times for reliability
+* This function sends an IR command multiple times 
 * Parameters: command (32-bit NEC command code)
 * command - The IR command to send
 * Returns: void
