@@ -11,10 +11,10 @@
 #include <IRremote.hpp>  
 
 // Motor pins
-#define IN1 7   // Forward right motor control
-#define IN2 8   // Forward left motor control
-#define IN3 9   // Backward right motor control
-#define IN4 10  // Backward left motor control
+#define IN1 7   // Forward right motor
+#define IN2 8   // Forward left motor 
+#define IN3 9   // Backward right motor
+#define IN4 10  // Backward left motor
 
 // IR Receiver codes
 #define IR_FORWARD     0x2200
@@ -132,14 +132,14 @@ void checkObstacle() {
 
   if (distance > 0 && distance < OBSTACLE_THRESHOLD) {
     if (!isAvoiding) {
-      Serial.println("Obstacle detected - Avoiding");
+      Serial.println("Avoiding");
       isAvoiding = true;
     }
     digitalWrite(BUZZER_PIN, HIGH); 
     turnRight();
   } else {
     if (isAvoiding) {
-      Serial.println("Path clear - Resuming forward");
+      Serial.println("Resuming forward");
       isAvoiding = false;
     }
     digitalWrite(BUZZER_PIN, LOW); 
